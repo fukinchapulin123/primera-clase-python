@@ -1,0 +1,85 @@
+class Fraction():
+    #atributos de clase
+    numerator = 0
+    denominator = 1
+ 
+
+    #constructor
+    def __init__(self,numerator,denominator):
+        self.numerator = numerator
+        self.denominator = denominator
+
+    #metodos de clase
+    def multiplicacion(self,other):
+        numerator = self.numerator * other.numerator
+        denominator = self.denominator * other.denominator
+        print("\nLa multiplicación es:",numerator,"/",denominator)
+
+    def division(self,other):
+        numerator = self.numerator * other.denominator
+        denominator = self.denominator * other.numerator
+        print("\nLa division es:",numerator,"/",denominator)
+
+    def suma(self,other):
+        if(self.denominator != other.denominator):
+            denominator = self.denominator * other.denominator
+            numerator = (self.numerator*other.denominator)+(other.numerator*self.denominator)
+            print("\nLa suma es:",numerator,"/",denominator)
+        else:
+            numerator = self.numerator + other.numerator
+            print("\nLa suma es:",numerator,"/",self.denominator)
+
+    def resta(self,other):
+        if(self.denominator != other.denominator):
+            denominator = self.denominator * other.denominator
+            numerator = (self.numerator*other.denominator)-(other.numerator*self.denominator)
+            print("\nLa resta es:",numerator,"/",denominator)
+        else:
+            numerator = self.numerator - other.numerator
+            print("\nLa resta es:",numerator,"/",self.denominator)
+
+
+#variables
+numerator_1 = 0
+numerator_2 = 0
+denominator_1 = 0
+denominator_2 = 0
+fraction1 = 0
+fraction2 = 0
+opcion = 0
+
+#pedir datos a usuario
+numerator_1 = int(input("Numerador fraccion A: "))
+denominator_1 = int(input("Denominador fraccion A:"))
+numerator_2 = int(input("Numerador fraccion B: "))
+denominator_2 = int(input("Denominador fraccion B:"))
+
+if (denominator_1 == 0  ):
+  print("Ingrese numero distinto de 0")
+
+if (denominator_2 == 0):
+  print("Ingrese numero distinto de 0")
+
+fraction1 = Fraction(numerator_1, denominator_1)
+print("Fraccion A =",fraction1.numerator,"/",fraction1.denominator)
+fraction2 = Fraction(numerator_2, denominator_2)
+print("Fraccion B =",fraction2.numerator,"/",fraction2.denominator)
+
+#mostrar datos en pantalla
+print("Para suma ingrese: (+)")
+print("Para resta ingrese:(-)")
+print("Para multiplicacion ingrese:(*)")
+print("Para division ingrese:(/)\n")
+print("===============================================\n")
+opcion = input("Ingrese su opción (+ - * /):")
+
+if(opcion =='+'):
+    fraction1.suma(fraction2)
+elif(opcion =='-'):
+    fraction1.resta(fraction2)
+elif(opcion =='*'):
+    fraction1.multiplicacion(fraction2)
+elif(opcion =='/'):
+    fraction1.division(fraction2)
+else:
+    print("ingrese una operacion correcta")
